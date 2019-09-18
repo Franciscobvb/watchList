@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Gallery</title>
+        <title>Watch List - My Nikken</title>
+        <link rel="shortcut icon" type="image/x-icon" href="https://www.nikken.com/themes_wordpress_/images/icons/nikken_logo.ico"> 
+	    <meta name="msapplication-TileImage" content="http://www.nikkentechnologies.com/images/nikken_144x144.png"/>
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
         <link href="{{asset('wlassets/css/gallery-materialize.css')}}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,16 +25,53 @@
             <div class="categories-wrapper cyan">
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="left hide-on-med-and-down">
-                    <li class="active"><a href="index.html">Gallery</a></li>
-                    <li><a href="index-dark.html">Dark Theme</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="docs.html">Docs</a></li>
-                    <li><a class='dropdown-trigger' href='#' data-target='feature-dropdown'>Features<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li class="active">
+                        <a href="javascript:void(0)">home</a>
+                    </li>
+                    <li>
+                        <a class='dropdown-trigger' href='#' data-target='feature-dropdown'>
+                            My Business
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class='dropdown-trigger' href='#' data-target='feature-dropdown2'>
+                            Ordering
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class='dropdown-trigger' href='#' data-target='feature-dropdown3'>
+                            Information Center
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class='dropdown-trigger' href='#' data-target='feature-dropdown4'>
+                            Recognition
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
                 </ul>
                 <ul id='feature-dropdown' class='dropdown-content'>
-                    <li><a href="full-header.html">Fullscreen Header</a></li>
-                    <li><a href="horizontal.html">Horizontal Style</a></li>
-                    <li><a href="no-image.html">No Image Expand</a></li>
+                    <li><a href="javascript:void(0)">Fullscreen Header</a></li>
+                    <li><a href="javascript:void(0)">Horizontal Style</a></li>
+                    <li><a href="javascript:void(0)">No Image Expand</a></li>
+                </ul>
+                <ul id='feature-dropdown2' class='dropdown-content'>
+                    <li><a href="javascript:void(0)">Fullscreen Header</a></li>
+                    <li><a href="javascript:void(0)">Horizontal Style</a></li>
+                    <li><a href="javascript:void(0)">No Image Expand</a></li>
+                </ul>
+                <ul id='feature-dropdown3' class='dropdown-content'>
+                    <li><a href="javascript:void(0)">Fullscreen Header</a></li>
+                    <li><a href="javascript:void(0)">Horizontal Style</a></li>
+                    <li><a href="javascript:void(0)">No Image Expand</a></li>
+                </ul>
+                <ul id='feature-dropdown4' class='dropdown-content'>
+                    <li><a href="javascript:void(0)">Fullscreen Header</a></li>
+                    <li><a href="javascript:void(0)">Horizontal Style</a></li>
+                    <li><a href="javascript:void(0)">No Image Expand</a></li>
                 </ul>
             </div>
         </nav>
@@ -314,9 +353,9 @@
                                     <p>OPV-OP&SL: Organizational Point Volume Outside Primary & Secondary Leg</p>
                                     <br>
                                     <div class="row">
-                                        <div class="col s12" style="overflow: scroll">
+                                        <div class="col s12" style="overflow: scroll; height: 800px;">
                                             <p>PPV is the accumulated point volume of product orders placed under a Consultant’s distributorship account. If Worldwide view is selected, the link is not active.</p>
-                                            <table class="responsive-table striped highlight" border="1px">
+                                            <table class="responsive-table highlight bordered">
                                                 <tbody>
                                                     <tr valign="bottom">
                                                         <th class="gen" rowspan="2">Line
