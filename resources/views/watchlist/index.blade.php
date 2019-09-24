@@ -11,6 +11,10 @@
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
         <link href="{{asset('wlassets/css/gallery-materialize.css')}}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
     </head>
     <body>
         <nav class="nav-extended">
@@ -54,24 +58,46 @@
                     </li>
                 </ul>
                 <ul id='feature-dropdown' class='dropdown-content'>
-                    <li><a href="javascript:void(0)">Fullscreen Header</a></li>
-                    <li><a href="javascript:void(0)">Horizontal Style</a></li>
-                    <li><a href="javascript:void(0)">No Image Expand</a></li>
+                    <li><a href="javascript:void(0)">1</a></li>
+                    <li><a href="javascript:void(0)">2</a></li>
+                    <li><a href="javascript:void(0)">3</a></li>
+                    <li><a href="javascript:void(0)">4</a></li>
+                    <li><a href="javascript:void(0)">5</a></li>
+                    <li><a href="javascript:void(0)">6</a></li>
+                    <li><a href="javascript:void(0)">7</a></li>
+                    <li><a href="javascript:void(0)">8</a></li>
+                    <li><a href="javascript:void(0)">9</a></li>
+                    <li><a href="javascript:void(0)">10</a></li>
+                    <li><a href="javascript:void(0)">11</a></li>
                 </ul>
                 <ul id='feature-dropdown2' class='dropdown-content'>
-                    <li><a href="javascript:void(0)">Fullscreen Header</a></li>
-                    <li><a href="javascript:void(0)">Horizontal Style</a></li>
-                    <li><a href="javascript:void(0)">No Image Expand</a></li>
+                    <li><a href="javascript:void(0)">1</a></li>
+                    <li><a href="javascript:void(0)">2</a></li>
+                    <li><a href="javascript:void(0)">3</a></li>
+                    <li><a href="javascript:void(0)">4</a></li>
+                    <li><a href="javascript:void(0)">5</a></li>
+                    <li><a href="javascript:void(0)">6</a></li>
                 </ul>
                 <ul id='feature-dropdown3' class='dropdown-content'>
-                    <li><a href="javascript:void(0)">Fullscreen Header</a></li>
-                    <li><a href="javascript:void(0)">Horizontal Style</a></li>
-                    <li><a href="javascript:void(0)">No Image Expand</a></li>
+                    <li><a href="javascript:void(0)">1</a></li>
+                    <li><a href="javascript:void(0)">2</a></li>
+                    <li><a href="javascript:void(0)">3</a></li>
+                    <li><a href="javascript:void(0)">4</a></li>
+                    <li><a href="javascript:void(0)">5</a></li>
+                    <li><a href="javascript:void(0)">6</a></li>
+                    <li><a href="javascript:void(0)">7</a></li>
+                    <li><a href="javascript:void(0)">8</a></li>
+                    <li><a href="javascript:void(0)">9</a></li>
                 </ul>
                 <ul id='feature-dropdown4' class='dropdown-content'>
-                    <li><a href="javascript:void(0)">Fullscreen Header</a></li>
-                    <li><a href="javascript:void(0)">Horizontal Style</a></li>
-                    <li><a href="javascript:void(0)">No Image Expand</a></li>
+                    <li><a href="javascript:void(0)">1</a></li>
+                    <li><a href="javascript:void(0)">2</a></li>
+                    <li><a href="javascript:void(0)">3</a></li>
+                    <li><a href="javascript:void(0)">4</a></li>
+                    <li><a href="javascript:void(0)">5</a></li>
+                    <li><a href="javascript:void(0)">6</a></li>
+                    <li><a href="javascript:void(0)">7</a></li>
+                    <li><a href="javascript:void(0)">8</a></li>
                 </ul>
             </div>
         </nav>
@@ -92,39 +118,39 @@
                                 <div class="collapsible-header" tabindex="0">
                                 <i class="material-icons">expand_more</i>Watch List (Click here)</div>
                                 <div class="collapsible-body">
-                                <span>
-                                    The watch list allows you to specify members that you want to monitor in your organization. If you know their ID you can add them below, or you can click on the add icon on any of the genealogy reports.
+                                    <span>
+                                        The watch list allows you to specify members that you want to monitor in your organization. If you know their ID you can add them below, or you can click on the add icon on any of the genealogy reports.
+                                    </span>
                                     <div class="row">
-                                        <div class="input-field col s6">
-                                            <i class="material-icons prefix">account_circle</i>
-                                            <input id="icon_prefix" type="text" class="autocomplete">
-                                            <label for="icon_prefix">Member ID:</label>
-                                        </div>
-                                        <div class="input-field col s6">
-                                            <a class="waves-effect waves-light btn"><i class="material-icons left">search</i>Add</a>
-                                        </div>
+                                        <form action="{!! url('/watchlist/addAsoc') !!}" name="addAsoc" id="addAsoc" method="GET">
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix">account_circle</i>
+                                                <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}" hidden></input>
+                                                <input id="associated" name="associated" type="text" class="autocomplete">
+                                                <label for="associated">Member ID:</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <button type="submit" class="waves-effect waves-light btn" id="sendForm">
+                                                    <i class="material-icons right">person_add</i>
+                                                    Add
+                                                </button>
+                                                <a class="waves-effect waves-light btn" onclick="reloadReport()">
+                                                    <i class="material-icons right">sync</i>
+                                                    Reload report
+                                                </a>
+                                            </div>
+                                        </form>
                                     </div>
-                                </span>
                                 </div>
                             </li>
                         </ul>
                         <ul class="collapsible collapsible-accordion">
-                            <li class="active">
+                            <li class="">
                                 <div class="collapsible-header" tabindex="0">
                                 <i class="material-icons">expand_more</i>Format (Click here)</div>
                                 <div class="collapsible-body">
-                                    <div class="row">
+                                    <div class="row list_view">
                                         <div class="col l3 m3 s3">
-                                            <label>Font Size</label>
-                                            <select class="browser-default">
-                                                <option value="8">8pt</option>
-                                                <option value="9">9pt</option>
-                                                <option value="10">10pt</option>
-                                                <option value="11">11pt</option>
-                                                <option value="12">12pt</option>
-                                                <option value="13">13pt</option>
-                                                <option value="14">14pt</option>
-                                            </select>
                                             Display Borders?
                                             <p>
                                                 <label>
@@ -134,44 +160,44 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <label>
                                                     <input name="group1" type="radio" />
-                                                    <span>Yellow</span>
+                                                    <span>No</span>
                                                 </label>
                                             </p>
                                         </div>
                                         <div class="col l3 m3 s3">
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked"/>
+                                                    <input type="checkbox" checked="checked" data-target ="1"/>
                                                     <span>Line Number</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked" data-target ="2"/>
                                                     <span>Levels </span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" disabled/>
+                                                    <input type="checkbox" checked="checked" disabled data-target ="3"/>
                                                     <span>Name</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox"/>
+                                                    <input type="checkbox" data-target =""/>
                                                     <span>Co-Applicant Name </span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked"/>
+                                                    <input type="checkbox" checked="checked" data-target ="4"/>
                                                     <span>Consultant ID</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked"/>
                                                     <span>Sponsor ID </span>
                                                 </label>
                                             </p>
@@ -203,13 +229,13 @@
                                         <div class="col l3 m3 s3">
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked" data-target ="6"/>
                                                     <span>Evening Phone</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked" data-target ="7"/>
                                                     <span>Day Phone</span>
                                                 </label>
                                             </p>
@@ -221,7 +247,7 @@
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked" data-target ="8"/>
                                                     <span>Address</span>
                                                 </label>
                                             </p>
@@ -245,7 +271,7 @@
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked"/>
                                                     <span>Country</span>
                                                 </label>
                                             </p>
@@ -265,13 +291,13 @@
                                         <div class="col l3 m3 s3">
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked"/>
                                                     <span>Rank </span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked" data-target ="9"/>
                                                     <span>Paid Rank </span>
                                                 </label>
                                             </p>
@@ -307,19 +333,19 @@
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked"/>
                                                     <span>Period July 2019</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked"/>
                                                     <span>Period August 2019</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" />
+                                                    <input type="checkbox" checked="checked"/>
                                                     <span>Period September 2019</span>
                                                 </label>
                                             </p>
@@ -342,7 +368,7 @@
                             </li>
                         </ul>
                         <ul class="collapsible collapsible-accordion">
-                            <li class="active">
+                            <li class="">
                                 <div class="collapsible-header" tabindex="0">
                                 <i class="material-icons">expand_more</i>Info (Click here)</div>
                                 <div class="collapsible-body">
@@ -352,1349 +378,39 @@
                                     <p>OPV-OPL: Organizational Point Volume Outside Primary Leg</p>
                                     <p>OPV-OP&SL: Organizational Point Volume Outside Primary & Secondary Leg</p>
                                     <br>
+                                    <p>PPV is the accumulated point volume of product orders placed under a Consultant’s distributorship account. If Worldwide view is selected, the link is not active.</p>
+                                    
                                     <div class="row">
-                                        <div class="col s12" style="overflow: scroll; height: 800px;">
-                                            <p>PPV is the accumulated point volume of product orders placed under a Consultant’s distributorship account. If Worldwide view is selected, the link is not active.</p>
-                                            <table class="responsive-table highlight bordered">
-                                                <tbody>
-                                                    <tr valign="bottom">
-                                                        <th class="gen" rowspan="2">Line
-                                                            <br>Num</th>
-                                                        <th class="gen" rowspan="2">LV</th>
-                                                        <th class="gen" rowspan="2">Remove</th>
-                                                        <th class="gen" rowspan="2">Name</th>
-                                                        <th class="gen" rowspan="2">Address</th>
-                                                        <th class="gen" rowspan="2">Country</th>
-                                                        <th class="gen" rowspan="2">Dist ID</th>
-                                                        <th class="gen" rowspan="2">
-                                            
-                                                            Sponsor ID
-                                                        </th>
-                                                        <th class="gen" rowspan="2">Renewal Date</th>
-                                                        <th class="gen" rowspan="2">Day Phone</th>
-                                                        <th class="gen" rowspan="2">Evening Phone</th>
-                                                        <th class="gen" rowspan="2">Rank</th>
-                                                        <th class="gen" rowspan="2">Paid Rank</th>
-                                                        <th class="gen" colspan="5" nowrap="">
-                                                            July 2019
-                                                        </th>
-                                            
-                                                        <th class="gen" colspan="5" nowrap="">
-                                                            August 2019
-                                                        </th>
-                                            
-                                                        <th class="gen" colspan="5" nowrap="">
-                                                            September 2019
-                                                        </th>
-                                            
-                                                    </tr>
+                                        <div class="col s12" style="overflow: scroll; height: auto;">
+                                            <table id="example" class="display" style="width: 100%">
+                                                <thead>
                                                     <tr>
-                                                        <th class="gen">PGPV</th>
-                                                        <th class="gen">PPV</th>
-                                                        <th class="gen">OPV</th>
-                                                        <th class="gen">OPV-OPL</th>
-                                                        <th class="gen">OPV-OPL&amp;SL</th>
-                                                        <th class="gen">PGPV</th>
-                                                        <th class="gen">PPV</th>
-                                                        <th class="gen">OPV</th>
-                                                        <th class="gen">OPV-OPL</th>
-                                                        <th class="gen">OPV-OPL&amp;SL</th>
-                                                        <th class="gen">PGPV</th>
-                                                        <th class="gen">PPV</th>
-                                                        <th class="gen">OPV</th>
-                                                        <th class="gen">OPV-OPL</th>
-                                                        <th class="gen">OPV-OPL&amp;SL</th>
+                                                        <th>Remove</th>
+                                                        <th>Line<br>num</th>
+                                                        <th>LV</th>
+                                                        <th>Name</th>
+                                                        <th>Dist ID</th>
+                                                        <th>Email</th>
+                                                        <th>Mobile #</th>
+                                                        <th>Alternative #</th>
+                                                        <th>Country</th>
+                                                        <th>Pay Rank</th>
                                                     </tr>
-                                            
-                                                    <tr class="row1" valign="bottom">
-                                                        <td class="gen" align="center">1</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=28162400">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            World Wellness Inc
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            889 Brantley Dr
-                                                            <br> Longwood, FL 32779-3519
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=28162400"> 28162400 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">06/27/2020</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=28162400"> 4074979679 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=28162400"> </a>
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            ROY</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DIA</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            1,006.10
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=28162400&amp;pvdate=201907">
-                                                            1,006.10 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">533,270.02</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            1,009.70
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=28162400&amp;pvdate=201908">
-                                                            1,009.70 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">600,320.55</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">222,738.98</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Remove</th>
+                                                        <th>Line<br>num</th>
+                                                        <th>LV</th>
+                                                        <th>Name</th>
+                                                        <th>Dist ID</th>
+                                                        <th>Email</th>
+                                                        <th>Mobile #</th>
+                                                        <th>Alternative #</th>
+                                                        <th>Country</th>
+                                                        <th>Pay Rank</th>
                                                     </tr>
-                                            
-                                                    <tr class="row2" valign="bottom">
-                                                        <td class="gen" align="center">2</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=29336500">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Albert Enterprises, Inc.
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            1510 W Spirit Drive
-                                                            <br> Anthem, AZ 85086-3930
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=29336500"> 29336500 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">07/14/2014</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=29336500"> 8185190693 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=29336500"> </a>
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row1" valign="bottom">
-                                                        <td class="gen" align="center">3</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=30282200">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Thomson, Marcia R.
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            1427 Rockledge Lane Apt 2
-                                                            <br> Walnut Creek, CA 94595-2421
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=30282200"> 30282200 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">07/28/2020</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=30282200"> 9252164486 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=30282200"> </a>
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            PLT</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            SIL</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            312.42
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=30282200&amp;pvdate=201907">
-                                                            312.42 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">770.26</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            341.86
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=30282200&amp;pvdate=201908">
-                                                            341.86 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">606.67</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            439.40
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=30282200&amp;pvdate=201909">
-                                                            147.60 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">621.78</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row2" valign="bottom">
-                                                        <td class="gen" align="center">4</td>
-                                                        <td class="gen" align="center">
-                                                            0</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=14960100">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Rapp, Herb Martin
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            761 Vegas Valley Dr
-                                                            <br> Las Vegas, NV 89109-1528
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=867329900"> 867329900 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">11/17/2019</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 7703541446 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 7703541446 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            ROY</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DIA</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            2,738.83
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=14960100&amp;pvdate=201907">
-                                                            1,186.70 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">649,574.11</td>
-                                                        <td class="gen" align="right">138.24</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            5,743.13
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=14960100&amp;pvdate=201908">
-                                                            4,008.50 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">710,512.71</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            656.80
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=14960100&amp;pvdate=201909">
-                                                            290.80 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">267,421.44</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row1" valign="bottom">
-                                                        <td class="gen" align="center">5</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=170900500">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Sendejas, Salvador
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            1614 Calle De Oro
-                                                            <br> Thousand Oaks, CA 91360-7011
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=170900500"> 170900500 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">05/21/2020</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=170900500"> 8055238488 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=170900500"> 8185548668 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            PLT</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            430.86
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=170900500&amp;pvdate=201907">
-                                                            119.73 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">2,144.65</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            232.20
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">1,135.49</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            323.10
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=170900500&amp;pvdate=201909">
-                                                            90.90 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">1,233.54</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row2" valign="bottom">
-                                                        <td class="gen" align="center">6</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=18240603">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            VARGAS LIGARRETO, LUIS CARLOS
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            Kra 35 B #1-07
-                                                            <br> BOGOTA, COL
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">COL&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=18240603"> 18240603 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=18240603"> 12022559 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=18240603"> 17561280 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row1" valign="bottom">
-                                                        <td class="gen" align="center">7</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=28162400">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            World Wellness Inc
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            889 Brantley Dr
-                                                            <br> Longwood, FL 32779-3519
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=28162400"> 28162400 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">06/27/2020</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=28162400"> 4074979679 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=28162400"> </a>
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            ROY</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DIA</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            1,006.10
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=28162400&amp;pvdate=201907">
-                                                            1,006.10 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">533,270.02</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            1,009.70
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=28162400&amp;pvdate=201908">
-                                                            1,009.70 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">600,320.55</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">222,738.98</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row2" valign="bottom">
-                                                        <td class="gen" align="center">8</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=777367400">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Stewart, Sandra D
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            917 74th St NE #1
-                                                            <br> Cedar Rapids IA 52402
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=777367400"> 777367400 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">03/26/2020</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=777367400"> (319) 294-3598 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=777367400"> </a>
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            EXC</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            EXC</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            117.00
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=777367400&amp;pvdate=201908">
-                                                            117.00 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">117.00</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row1" valign="bottom">
-                                                        <td class="gen" align="center">9</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=785622500">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Smoyak, Shirley
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            4 Roney Rd
-                                                            <br> Edison, NJ 08820-3208
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=785622500"> 785622500 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">07/15/2020</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=785622500"> 7325483473 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=785622500"> </a>
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            EXC</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            EXC</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            187.00
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=785622500&amp;pvdate=201908">
-                                                            187.00 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">187.00</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row2" valign="bottom">
-                                                        <td class="gen" align="center">10</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=813217700">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Live Well Solutions LLC
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            2873 Seahorse Avenue
-                                                            <br> Ventura, CA 93001-4149
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=813217700"> 813217700 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">05/07/2020</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=813217700"> 7073641919 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=813217700"> 7073641919 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            PLT</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            365.64
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">758.64</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">255.40</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            323.50
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=813217700&amp;pvdate=201909">
-                                                            153.80 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">543.50</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row1" valign="bottom">
-                                                        <td class="gen" align="center">11</td>
-                                                        <td class="gen" align="center">
-                                                            2</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=817986000">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Coussa, Maria
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            1630 W Covina Blvd Spc 33
-                                                            <br> San Dimas, CA 91773-3435
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=817986000"> 817986000 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=170900500"> 170900500 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">01/27/2020</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=817986000"> 7143931135 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=817986000"> 7606007006 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            PLT</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            51.60
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=817986000&amp;pvdate=201907">
-                                                            20.10 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">1,046.93</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            37.80
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=817986000&amp;pvdate=201908">
-                                                            6.30 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">285.73</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            43.50
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=817986000&amp;pvdate=201909">
-                                                            12.00 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">584.14</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row2" valign="bottom">
-                                                        <td class="gen" align="center">12</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=869710700">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Hunter Arianna Partners
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            13654 Red Hill Ave Apt L
-                                                            <br> Tustin, CA 92780-4767
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=869710700"> 869710700 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">12/04/2019</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=869710700"> 8478096305 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=869710700"> </a>
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DIA</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DIA</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            1,772.60
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=869710700&amp;pvdate=201907">
-                                                            1,004.00 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">106,432.65</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            1,006.20
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=869710700&amp;pvdate=201908">
-                                                            430.20 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">100,075.44</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            27.10
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">40,488.28</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                            
-                                                    <tr class="row1" valign="bottom">
-                                                        <td class="gen" align="center">13</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=869813900">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Van Cronkhite, Janice
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            463 Metropolitan Pl SE
-                                                            <br> Atlanta, GA 30316-1601
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">USA&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=869813900"> 869813900 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">12/21/2018</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=869813900"> 6782306932 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=869813900"> 6782306932 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                                    
-                                                    <tr class="row2" valign="bottom">
-                                                        <td class="gen" align="center">18</td>
-                                                        <td class="gen" align="center">
-                                                            1</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            <a href="gen.cfm?report=watchlist&amp;removeWatch=true&amp;watchID=873125200">
-                                                                <img src="http://nettrax.myvoffice.com/nikkenusa/images/remove.gif" alt="Remove from Watch List" title="Remove from Watch List" width="17" height="17" border="0"></a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="">
-                                                            Scarff, June M
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            388 Basinview Dr
-                                                            <br> Bedford, NS B4A 3R3
-                                                            <br>
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">CAN&nbsp;</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=873125200"> 873125200 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=14960100"> 14960100 </a>
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">01/29/2020</td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=873125200"> 9024480499 </a> &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" nowrap="" align="center">
-                                                            <a href="perinfo.cfm?distid2=873125200"> </a>
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            SIL</td>
-                                            
-                                                        <td class="gen" align="center">
-                                                            DD</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            196.40
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">
-                                            
-                                                            <a href="acctgen.cfm?DISTID2=873125200&amp;pvdate=201908">
-                                                            5.40 </a>
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">196.40</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                        <td class="gen" align="right">
-                                                            &nbsp;
-                                                        </td>
-                                            
-                                                        <td class="gen" align="center">
-                                            
-                                                            &nbsp;
-                                            
-                                                        </td>
-                                            
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                                        <td class="gen" align="right">&nbsp;</td>
-                                            
-                                                    </tr>
-                                                </tbody>
+                                                </tfoot>
                                             </table>
                                         </div>
                                     </div>
@@ -1706,26 +422,17 @@
             </div>
         </div>
     </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="{{asset('wlassets/js/imagesloaded.pkgd.min.js')}}"></script>
     <script src="{{asset('wlassets/js/masonry.pkgd.min.js')}}"></script>
     <script src="{{asset('wlassets/js/materialize.min.js')}}"></script>
     <script src="{{asset('wlassets/js/color-thief.min.js')}}"></script>
     <script src="{{asset('wlassets/js/galleryExpand.js')}}"></script>
     <script src="{{asset('wlassets/js/init.js')}}"></script>
-    <script>
-        $(document).ready(function(){
-            $('input.autocomplete').autocomplete({
-                data: {
-                    "Alex Rodriguez": null,
-                    "Francisco Melcor": null,
-                    "Abi Escobar": null,
-                    "Luis Miros": null,
-                    "Veronica Mendoza": null,
-                    "Emmanuel Gomez": null,
-                    "Erick Gonzalez": null,
-                },
-            });
-        });
-    </script>
+    <script src="{{asset('wlassets/js/custom.js')}}"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src=" https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js "></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
 </html>
