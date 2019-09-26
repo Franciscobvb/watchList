@@ -129,12 +129,12 @@
                                                 <input id="associated" name="associated" type="text" class="autocomplete">
                                                 <label for="associated">Member ID:</label>
                                             </div>
-                                            <div class="input-field col s6">
-                                                <button type="submit" class="waves-effect waves-light btn" id="sendForm">
+                                            <div class="input-field col s6 ">
+                                                <button type="submit" class="waves-effect waves-light btn cyan" id="sendForm">
                                                     <i class="material-icons right">person_add</i>
                                                     Add
                                                 </button>
-                                                <a class="waves-effect waves-light btn" onclick="reloadReport()">
+                                                <a class="waves-effect waves-light btn cyan" onclick="reloadReport()">
                                                     <i class="material-icons right">sync</i>
                                                     Reload report
                                                 </a>
@@ -145,270 +145,213 @@
                             </li>
                         </ul>
                         <ul class="collapsible collapsible-accordion">
-                            <li class="">
+                            <li class="active">
                                 <div class="collapsible-header" tabindex="0">
                                 <i class="material-icons">expand_more</i>Format (Click here)</div>
                                 <div class="collapsible-body">
                                     <div class="row list_view">
                                         <div class="col l3 m3 s3">
-                                            Display Borders?
                                             <p>
                                                 <label>
-                                                    <input name="group1" type="radio" />
-                                                    <span>Yes</span>
-                                                </label>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>
-                                                    <input name="group1" type="radio" />
-                                                    <span>No</span>
-                                                </label>
-                                            </p>
-                                        </div>
-                                        <div class="col l3 m3 s3">
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" checked="checked" data-target ="1"/>
+                                                    <input type="checkbox" id="line_number" data-target="1"/>
                                                     <span>Line Number</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" data-target ="2"/>
+                                                    <input type="checkbox" checked="checked" id="levels" data-target="2"/>
                                                     <span>Levels </span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" disabled data-target ="3"/>
+                                                    <input type="checkbox" checked="checked" disabled id="name" data-target="3"/>
                                                     <span>Name</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" data-target =""/>
-                                                    <span>Co-Applicant Name </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" checked="checked" data-target ="4"/>
+                                                    <input type="checkbox" checked="checked" id="consultant_id" data-target="4"/>
                                                     <span>Consultant ID</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked"/>
-                                                    <span>Sponsor ID </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox"/>
-                                                    <span>Entry Date </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox"/>
-                                                    <span>Last Order Date </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox"/>
-                                                    <span>Months Inactive</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" checked="checked"/>
-                                                    <span>Renewal Date</span>
+                                                    <input type="checkbox" checked="checked" id="email" data-target="5"/>
+                                                    <span>E-mail Address</span>
                                                 </label>
                                             </p>
                                         </div>
                                         <div class="col l3 m3 s3">
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" data-target ="6"/>
-                                                    <span>Evening Phone</span>
+                                                    <input type="checkbox" checked="checked" id="mobile_number" data-target="6"/>
+                                                    <span>Mobile Phone</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" data-target ="7"/>
-                                                    <span>Day Phone</span>
+                                                    <input type="checkbox" checked="checked" id="alternative_num" data-target="7"/>
+                                                    <span>Alternative Phone</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" />
-                                                    <span>Fax </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" checked="checked" data-target ="8"/>
-                                                    <span>Address</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" />
-                                                    <span>City </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" />
-                                                    <span>State </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" />
-                                                    <span>Zip/Postal Code </span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" checked="checked"/>
+                                                    <input type="checkbox" checked="checked" id="country" data-target="8"/>
                                                     <span>Country</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" />
-                                                    <span>Marketing Unit </span>
+                                                    <input type="checkbox" checked="checked" id="pay_rank" data-target="9"/>
+                                                    <span>Pay Rank </span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" />
-                                                    <span>Consultant Status </span>
+                                                    <input type="checkbox" checked="checked" id="distributor_status" data-target="10"/>
+                                                    <span>Distributor status</span>
                                                 </label>
                                             </p>
                                         </div>
                                         <div class="col l3 m3 s3">
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked"/>
-                                                    <span>Rank </span>
+                                                    <input type="checkbox" checked="checked" id="inactive_months" data-target="11"/>
+                                                    <span>Inactive Months</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" data-target ="9"/>
-                                                    <span>Paid Rank </span>
+                                                    <input type="checkbox" checked="checked" id="renewal_date" data-target="12"/>
+                                                    <span>Renewal Date</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" />
-                                                    <span>Autoship</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" />
-                                                    <span>Millionaire's Club</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" />
-                                                    <span>Humans Being More</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" />
-                                                    <span>Lifestyle Bonus\Home Program</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" />
-                                                    <span>E-mail Address</span>
-                                                </label>
-                                            </p>
-                                            <p>
-                                                <label>
-                                                    <input type="checkbox" checked="checked"/>
+                                                    <input type="checkbox" checked="checked" name="mont1" id="period1" onclick="hideShowPeriod1()"/>
                                                     <span>Period July 2019</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked"/>
+                                                    <input type="checkbox" checked="checked" name="mont2" id="period2" onclick="hideShowPeriod2()"/>
                                                     <span>Period August 2019</span>
                                                 </label>
                                             </p>
                                             <p>
                                                 <label>
-                                                    <input type="checkbox" checked="checked"/>
+                                                    <input type="checkbox" checked="checked" name="mont3" id="period3" onclick="hideShowPeriod3()"/>
                                                     <span>Period September 2019</span>
                                                 </label>
                                             </p>
+                                        </div>
+                                        <div class="col l3 m3 s3">
+                                            <p>Your options can be saved as the defaults for the Watch List report.</p>
                                             <p>
-                                                <label>
-                                                    <input type="checkbox" checked="checked" />
-                                                    <span>Display QOPV Data (not included in save report option, use update report to view without QOPV)</span>
-                                                </label>
+                                               <button class="btn waves-effect waves-light cyan" onclick="saveTableConf()">Save Options
+                                                    <i class="material-icons right">save</i>
+                                                </button> 
+                                            </p>
+                                            <p>
+                                                <button class="btn waves-effect waves-light cyan" name="action">Update Watch List
+                                                    <i class="material-icons right">update</i>
+                                                </button>
                                             </p>
                                         </div>
                                     </div>
-                                    Your options can be saved as the defaults for the genealogy report. <br>
-                                    <button class="btn waves-effect waves-light" type="" name="action">Save Options
-                                        <i class="material-icons right">save</i>
-                                    </button>
-                                    <button class="btn waves-effect waves-light" type="" name="action">Update Watch List
-                                        <i class="material-icons right">update</i>
-                                    </button>
                                 </div>
                             </li>
                         </ul>
                         <ul class="collapsible collapsible-accordion">
-                            <li class="">
+                            <li class="active">
                                 <div class="collapsible-header" tabindex="0">
                                 <i class="material-icons">expand_more</i>Info (Click here)</div>
                                 <div class="collapsible-body">
-                                    <p>PPV: Personal Point Volume</p>
-                                    <p>PGPV: Personal Group Point Volume</p>
-                                    <p>OPV: Organizational Point Volume</p>
-                                    <p>OPV-OPL: Organizational Point Volume Outside Primary Leg</p>
-                                    <p>OPV-OP&SL: Organizational Point Volume Outside Primary & Secondary Leg</p>
-                                    <br>
-                                    <p>PPV is the accumulated point volume of product orders placed under a Consultant’s distributorship account. If Worldwide view is selected, the link is not active.</p>
-                                    
+                                    <div>
+                                        <p>PPV: Personal Point Volume</p>
+                                        <p>PGPV: Personal Group Point Volume</p>
+                                        <p>OPV: Organizational Point Volume</p>
+                                        <p>OPV-OPL: Organizational Point Volume Outside Primary Leg</p>
+                                        <p>OPV-OP&SL: Organizational Point Volume Outside Primary & Secondary Leg</p>
+                                        <br>
+                                        <p>PPV is the accumulated point volume of product orders placed under a Consultant’s distributorship account. If Worldwide view is selected, the link is not active.</p>
+                                    </div>
                                     <div class="row">
                                         <div class="col s12" style="overflow: scroll; height: auto;">
                                             <table id="example" class="display" style="width: 100%">
                                                 <thead>
                                                     <tr>
-                                                        <th>Remove</th>
-                                                        <th>Line<br>num</th>
-                                                        <th>LV</th>
-                                                        <th>Name</th>
-                                                        <th>Dist ID</th>
-                                                        <th>Email</th>
-                                                        <th>Mobile #</th>
-                                                        <th>Alternative #</th>
-                                                        <th>Country</th>
-                                                        <th>Pay Rank</th>
+                                                        <th rowspan="2"></th>
+                                                        <th rowspan="2">Line<br>num</th>
+                                                        <th rowspan="2">LV</th>
+                                                        <th rowspan="2">Name</th>
+                                                        <th rowspan="2">Dist ID</th>
+                                                        <th rowspan="2">Email</th>
+                                                        <th rowspan="2">Mobile Number</th>
+                                                        <th rowspan="2">Alternative Mobile Number</th>
+                                                        <th rowspan="2">Country</th>
+                                                        <th rowspan="2">Pay Rank</th>
+                                                        <th rowspan="2">Distributor Status</th>
+                                                        <th rowspan="2">Inactive Months</th>
+                                                        <th rowspan="2">Renewal Date</th>
+                                                        <th colspan="5" class="mont1">July 2019</th>
+                                                        <th colspan="5" class="mont2">August 2019</th>
+                                                        <th colspan="5" class="mont3">September 2019</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>PGPV</th>
+                                                        <th>PPV</th>
+                                                        <th>OPV</th>
+                                                        <th>OPV-OPL</th>
+                                                        <th>OPV-OPL&amp;SL</th>
+                                                        <th>PGPV</th>
+                                                        <th>PPV</th>
+                                                        <th>OPV</th>
+                                                        <th>OPV-OPL</th>
+                                                        <th>OPV-OPL&amp;SL</th>
+                                                        <th>PGPV</th>
+                                                        <th>PPV</th>
+                                                        <th>OPV</th>
+                                                        <th>OPV-OPL</th>
+                                                        <th>OPV-OPL&amp;SL</th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>Remove</th>
-                                                        <th>Line<br>num</th>
-                                                        <th>LV</th>
-                                                        <th>Name</th>
-                                                        <th>Dist ID</th>
-                                                        <th>Email</th>
-                                                        <th>Mobile #</th>
-                                                        <th>Alternative #</th>
-                                                        <th>Country</th>
-                                                        <th>Pay Rank</th>
+                                                        <th rowspan="2"></th>
+                                                        <th rowspan="2">Line<br>num</th>
+                                                        <th rowspan="2">LV</th>
+                                                        <th rowspan="2">Name</th>
+                                                        <th rowspan="2">Dist ID</th>
+                                                        <th rowspan="2">Email</th>
+                                                        <th rowspan="2">Mobile Number</th>
+                                                        <th rowspan="2">Alternative Mobile Number</th>
+                                                        <th rowspan="2">Country</th>
+                                                        <th rowspan="2">Pay Rank</th>
+                                                        <th rowspan="2">Distributor Status</th>
+                                                        <th rowspan="2">Inactive Months</th>
+                                                        <th rowspan="2">Renewal Date</th>
+                                                        <th>PGPV</th>
+                                                        <th>PPV</th>
+                                                        <th>OPV</th>
+                                                        <th>OPV-OPL</th>
+                                                        <th>OPV-OPL&amp;SL</th>
+                                                        <th>PGPV</th>
+                                                        <th>PPV</th>
+                                                        <th>OPV</th>
+                                                        <th>OPV-OPL</th>
+                                                        <th>OPV-OPL&amp;SL</th>
+                                                        <th>PGPV</th>
+                                                        <th>PPV</th>
+                                                        <th>OPV</th>
+                                                        <th>OPV-OPL</th>
+                                                        <th>OPV-OPL&amp;SL</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="5" class="mont1">July 2019</th>
+                                                        <th colspan="5" class="mont2">August 2019</th>
+                                                        <th colspan="5" class="mont3">September 2019</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>

@@ -49,4 +49,41 @@ class WatchList extends Controller{
         \DB::disconnect('sqlsrv');
         return \Response::json($response);
     }
+
+    public function saveTableConfig(Request $request){
+        $idsponsor = $request->idsponsor;
+        $line_number = $request->line_number;
+        $levels = $request->levels;
+        $name = $request->name;
+        $consultant_id = $request->consultant_id;
+        $email = $request->email;
+        $mobile_number = $request->mobile_number;
+        $alternative_num = $request->alternative_num;
+        $country = $request->country;
+        $pay_rank = $request->pay_rank;
+        $distributor_status = $request->distributor_status;
+        $inactive_months = $request->inactive_months;
+        $renewal_date = $request->renewal_date;
+        $period1 = $request->period1;
+        $period2 = $request->period2;
+        $period3 = $request->period3;
+
+        $conection = \DB::connection('sqlsrv');
+            $response = $conection->delete("DELETE FROM Config_Genealogy WHERE Owner_Genealogy = ?", array($idsponsor));
+            $response = $conection->insert("INSERT INTO Config_Genealogy VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+            array(
+                "$idsponsor", "$line_number", "$levels", "$consultant_id", "$email", "$mobile_number", "$alternative_num",
+                "$country", "$pay_rank", "$distributor_status", "$inactive_months", "$renewal_date", "$period1", "$period2", "$period3"
+            ));
+        \DB::disconnect('sqlsrv');
+        return \Response::json($response);
+    }
+
+    public function initTableConfig(Request $request){
+        $sponsorid = $request->sponsorid;
+        $conection = \DB::connection('sqlsrv');
+            $response = $conection->select("SELECT * FROM Config_Genealogy WHERE Owner_Genealogy = ?", array($sponsorid));
+        \DB::disconnect('sqlsrv');
+        return \Response::json($response);
+    }
 }
