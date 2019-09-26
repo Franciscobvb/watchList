@@ -5,7 +5,8 @@ $(document).ready(function() {
     $(function() {
         $.ajax({
             type: 'GET',
-            url: currentURL + 'welcome',
+            url: 'welcome/{idsponsor}{period}',
+            data: {idsponsor: 14960100, period: 201909},
             success: function(response) {
                 var partners = response;
                 var genealogy = {};
@@ -23,10 +24,9 @@ $(document).ready(function() {
     $(function(){
         $.ajax({
             type: 'GET',
-            url: currentURL + 'loadInitConf',
+            url: 'loadInitConf',
             data: {sponsorid: 14960100},
             success: function(Response) {
-                console.log(Response);
                 var table = $('#example').DataTable();
                 if(Response[0].Line_Number == 'true '){
                     $("#line_number").prop('checked', true)
@@ -155,10 +155,10 @@ $(function(){
         }
         else{
             associateid = associateid[0];
-            var idAssoc = {_token: _token, associated: associateid};
+            var idAssoc = {_token: _token, associated: associateid, idsponsor: 14960100};
             $.ajax({
                 type: 'GET',
-                url: '/watchlist/addAsoc',
+                url: 'addAsoc',
                 data: idAssoc,
                 success: function(Response){
                     if(Response){
@@ -178,9 +178,12 @@ $(function(){
 
 function reloadReport(){
     // Clear and reload Table of report
+    var idsponsor = 14960100;
+    var period = 201909;
+
     var table = $('#example').DataTable({
         destroy: true,
-        ajax: 'http://watchlist.test/watchlist/reloadtab',
+        ajax: "reloadtab/?idsponsor=" + idsponsor + "&&period=" + period,
         deferRender: true,
         columns: [
             {
@@ -279,7 +282,7 @@ function deleteRow(element){
             $.ajax({
                 type: 'GET',
                 url: currentURL + 'delAsoc/{id}',
-                data: { id: element },
+                data: { id: element, idsponsor: 14960100 },
                 success: function(Response) {
                     if(Response){
                         showToast2(element + ' DELETED CORRECTLY!!');
