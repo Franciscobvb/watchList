@@ -24,7 +24,8 @@ class WatchList extends Controller{
         $idsponsor = $request->idsponsor;
         $period = $request->period;
         $conection = \DB::connection('sqlsrv');
-            $response = $conection->select("EXEC Sp_TreePerId_Watch ?, ?",array(14960100, 201909));
+            $response = $conection->select("EXEC Sp_TreePerId_Watch ?, ?",array($idsponsor, $period));
+            //$response = $conection->select('EXEC Sp_TreePerId ?,?', array(14960100, 201909));
         \DB::disconnect('sqlsrv');
         $data = [
             'data' => $response,

@@ -1,4 +1,19 @@
 var currentURL = window.location;
+var today = new Date();
+var dd = today.getDate();
+
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+if(dd<10) 
+{
+    dd='0'+dd;
+} 
+
+if(mm<10) 
+{
+    mm='0'+mm;
+} 
+today = yyyy + "" + mm;
 
 $(document).ready(function() {
     //Autocomplete
@@ -6,7 +21,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'GET',
             url: 'welcome/{idsponsor}{period}',
-            data: {idsponsor: 14960100, period: 201909},
+            data: {idsponsor: 14960100, period: today},
             success: function(response) {
                 var partners = response;
                 var genealogy = {};
@@ -179,7 +194,7 @@ $(function(){
 function reloadReport(){
     // Clear and reload Table of report
     var idsponsor = 14960100;
-    var period = 201909;
+    var period = today;
 
     var table = $('#example').DataTable({
         destroy: true,
